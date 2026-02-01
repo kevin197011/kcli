@@ -9,37 +9,60 @@
 - **自动加载**：基于 `Zeitwerk` 实现的高效代码加载。
 - **精美输出**：内置表格化输出支持。
 
-## 快速开始
+## 安装指南
 
-### 安装依赖
+### 1. 安装 Ruby
 
-首先确保你安装了 Ruby (>= 3.0.0)，然后运行：
+`kcli` 要求 Ruby 版本 >= 3.0.0。
+
+#### macOS
+推荐使用 [Homebrew](https://brew.sh/) 安装：
+```bash
+brew install ruby
+```
+如果你需要管理多个 Ruby 版本，建议使用 [rbenv](https://github.com/rbenv/rbenv) 或 [rvm](https://rvm.io/)。
+
+#### Linux (Ubuntu/Debian)
+```bash
+sudo apt update
+sudo apt install ruby-full build-essential zlib1g-dev
+```
+
+#### Linux (CentOS/RHEL)
+```bash
+sudo yum install ruby ruby-devel
+```
+*注意：如果系统自带版本过低，建议通过 `rbenv` 或源码编译安装 Ruby 3.0+。*
+
+#### Windows
+推荐从 [RubyInstaller](https://rubyinstaller.org/) 下载并运行安装程序（建议选择 **Ruby+Devkit** 版本以方便编译依赖）。
+
+### 2. 安装 kcli
+
+目前支持从源码克隆并安装为本地 Gem。
 
 ```bash
+# 克隆仓库
+git clone https://github.com/kevin197011/kcli.git
+cd kcli
+
+# 安装依赖
 bundle install
-```
 
-### 使用本地命令
-
-你可以直接从源码运行命令：
-
-```bash
-./bin/kcli help
-```
-
-### 安装为 Gem
-
-**本地安装：**
-
-```bash
+# 编译并安装为 Gem
 gem build kcli.gemspec
 gem install ./kcli-0.1.0.gem
+```
+
+安装完成后，你可以验证是否安装成功：
+```bash
+kcli help
 ```
 
 **从 GitHub 安装 (Gemfile)：**
 
 ```ruby
-gem 'kcli', github: 'your-user/kcli'
+gem 'kcli', github: 'kevin197011/kcli'
 ```
 
 ## 配置说明
